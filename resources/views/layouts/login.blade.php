@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/propeller.min.css') }}">
     <!-- /build -->
 
+    @yield('stylesheet')
+
     <!-- Propeller theme css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('themes/css/propeller-theme.css') }}" />
 
@@ -41,6 +43,7 @@
     <script src="{{ asset('assets/js/jquery-1.12.2.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/propeller.min.js') }}"></script>
+    <script src="{{ asset('bower/jquery-validation/dist/jquery.validate.min.js') }}" type="text/javascript"></script>
     <!-- /build -->
     <script>
         $(document).ready(function() {
