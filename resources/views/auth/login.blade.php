@@ -228,35 +228,39 @@
                                 </div>
                                 <h3>Sign Up <span>with <strong>PROPELLER</strong></span></h3>
                             </div>
-                            
-                            <form class="form-login" method="POST" action="{{ route('register') }}"> 
+
+                            <form class="form-login" method="POST" action="{{ route('register') }}">
+                                {{ csrf_field() }}
                                 <div class="pmd-card-body">
 
                                     <div class="group-fields clearfix row">
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                             <div class="form-group pmd-textfield">
                                                 <label for="firstname" class="control-label">Name</label>
-                                                <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First*"><span class="pmd-textfield-focused"></span>
-                                                <p class="help-block">You can't leave this empty.</p>
+                                                <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First*" value="{{ @old('firstname') }}"><span class="pmd-textfield-focused"></span>
+                                                <!-- <p class="help-block">You can't leave this empty.</p> -->
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                             <div class="form-group pmd-textfield">
                                                 <label for="regular1" class="control-label">&nbsp;</label>
-                                                <input type="text" id="middlename" name="middlename" class="form-control" placeholder="Middle"><span class="pmd-textfield-focused"></span>
+                                                <input type="text" id="middlename" name="middlename" class="form-control" placeholder="Middle" value="{{ @old('middlename') }}"><span class="pmd-textfield-focused"></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                             <div class="form-group pmd-textfield">
                                                 <label for="regular1" class="control-label">&nbsp;</label>
-                                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last*" required="required"><span class="pmd-textfield-focused"></span>
+                                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last*" value="{{ @old('lastname') }}"><span class="pmd-textfield-focused"></span>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="form-group pmd-textfield">
-                                        <label for="regular1" class="control-label">Regular Input</label>
-                                        <input type="text" id="regular1" class="form-control"><span class="pmd-textfield-focused"></span>
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                        <label for="inputError1" class="control-label pmd-input-group-label">Email address</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">email</i></div>
+                                            <input type="text" class="form-control">
+                                        </div>
                                     </div>
 
                                     
@@ -278,7 +282,7 @@
                               </div>
                               
                               <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
-                                <a href="index.html" type="button" class="btn pmd-ripple-effect btn-primary btn-block">Sign Up</a>
+                                <button class="btn pmd-ripple-effect btn-primary btn-block" type="submit">Sign up</button>
                               </div>
                             </form>
                         </div>
