@@ -21,6 +21,7 @@ class CreateMajorSubOutputsTable extends Migration
             Schema::create('major_sub_outputs', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('level');
+                $table->integer('level_id')->nullable();
                 $table->string('title_perform', 300);
                 $table->integer('total');
                 $table->integer('accomplished');

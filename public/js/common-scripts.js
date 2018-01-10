@@ -1,7 +1,7 @@
 var Script = function () {
 
 // custom scrollbar
-    $('html').niceScroll({
+    /*$('html').niceScroll({
         styler: 'fb', 
         cursorcolor: '#8f8f8f', 
         cursorwidth: '8', 
@@ -12,7 +12,7 @@ var Script = function () {
         zindex: '1000'
     });
 
-    $("content").getNiceScroll().resize();
+    $(".inner-page").getNiceScroll().resize();*/
 
     $('.hide-alert-panel').delay(5000).hide("slow");
     
