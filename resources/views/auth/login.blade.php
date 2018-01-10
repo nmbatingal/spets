@@ -8,7 +8,7 @@
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header"> 
-          <a href="" class="navbar-brand">
+          <a href="{{ route('welcome') }}" class="navbar-brand">
             <svg version="1.1" x="0px" y="0px" width="174.16px" height="48px" viewBox="0 0 174.16 48" enable-background="new 0 0 174.16 48" xml:space="preserve">
                 <g>
                     <g>
