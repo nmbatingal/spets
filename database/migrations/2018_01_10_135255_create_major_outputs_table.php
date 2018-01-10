@@ -22,6 +22,8 @@ class CreateMajorOutputsTable extends Migration
             Schema::create('major_outputs', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('title', 200);
+                $table->integer('owner_id')->unsigned();
+                $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
                 $table->timestamps();
             });
         }

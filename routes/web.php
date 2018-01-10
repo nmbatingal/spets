@@ -21,12 +21,12 @@ Route::get('/login', function () {
 
 Auth::routes();
 
+Route::get('/dashboard', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
-
-	Route::get('/dashboard', 'HomeController@index')->name('home');
 
 	/*** My Performance ***/
 	Route::get('/performance/individual', 'PerformanceController@index')->name('performance.individual');
 	Route::get('/performance/individual/create', 'PerformanceController@create')->name('performance.create');
+	Route::post('/performance/individual/store', 'PerformanceController@store')->name('performance.store');
 });

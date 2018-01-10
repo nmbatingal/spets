@@ -7,7 +7,7 @@
             <div class="dropdown notification icons pmd-dropdown">
             
                 <a href="javascript:void(0)" title="Notification" class="dropdown-toggle pmd-ripple-effect"  data-toggle="dropdown" role="button" aria-expanded="true">
-                    <div data-badge="3" class="material-icons md-light pmd-sm pmd-badge  pmd-badge-overlap">notifications_none</div>
+                    <div data-badge="3" class="material-icons md-light md-24 pmd-sm pmd-badge pmd-badge-overlap">notifications_none</div>
                 </a>
             
                 <div class="dropdown-menu dropdown-menu-right pmd-card pmd-card-default pmd-z-depth" role="menu">
@@ -88,7 +88,7 @@
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons">menu</i></a>   
+            <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons md-24">menu</i></a>   
             <a href="{{ url('/dashboard') }}" class="navbar-brand">
                 <svg version="1.1" x="0px" y="0px" width="174.16px" height="48px" viewBox="0 0 174.16 48" enable-background="new 0 0 174.16 48" xml:space="preserve">
                     <g>

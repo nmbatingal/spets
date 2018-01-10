@@ -48,7 +48,7 @@
         <li class="dropdown pmd-dropdown {{ Request::is('performance/*') ? 'open' : '' }}"> 
             <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media {{ Request::is('performance/*') ? 'active' : '' }}" data-sidebar="true" href="javascript:void(0);">  
                 <i class="media-left media-middle">
-                    <div class="material-icons md-light">trending_up</div>
+                    <div class="material-icons md-light md-24">trending_up</div>
                 </i> 
                 <span class="media-body">My Performance</span>
                 <div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>

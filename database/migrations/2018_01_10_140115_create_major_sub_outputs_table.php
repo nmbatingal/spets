@@ -21,10 +21,9 @@ class CreateMajorSubOutputsTable extends Migration
             Schema::create('major_sub_outputs', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('level');
-                $table->integer('level_id')->nullable();
-                $table->string('title_perform', 300);
-                $table->integer('total');
-                $table->integer('accomplished');
+                $table->integer('sublevel')->nullable();
+                $table->string('subtitle', 300);
+                $table->integer('total')->nullable();
                 $table->integer('mfo_id')->unsigned();
                 $table->foreign('mfo_id')->references('id')->on('major_outputs')->onDelete('cascade');
                 $table->timestamps();

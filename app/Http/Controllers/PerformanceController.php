@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MajorOutput as MajorOutput;
+use App\MajorSubOutput as SubOutput;
 
 class PerformanceController extends Controller
 {
@@ -36,7 +37,25 @@ class PerformanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        foreach ($request['maintitle'] as $i => $maintitle) {
+
+            $majorOutput = new MajorOutput();
+
+            $majorOutput->title       = $maintitle;
+            $majorOutput->owner_id    = $request['user_id'];
+            $majorOutput->save();
+
+            foreach ($request['subtitle'] as $i => $subtitle) {
+                
+                $subOutput = new SubOutput();
+
+                $subOutput->level
+                $subOutput->subtitle
+                $subOutput->level
+
+            }
+        }
     }
 
     /**

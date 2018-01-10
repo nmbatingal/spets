@@ -2,20 +2,18 @@
 
 @section('styles')
 <style type="text/css">
-    /*textarea, input {
-        border: 0 !important;
-        outline: none;
-    }*/
     tbody > tr > td {
         padding: 2 !important;
     }
     td[data-type="target"] {
         width: 5%;
     }
-
     td.text-center {
-        text-align: center !important;
+        text-align: right !important;
         vertical-align: top !important;
+    }
+    textarea, input {
+        border: 0 !important;
     }
 </style>
 @endsection
@@ -40,23 +38,51 @@
 
         <!-- table card -->
         <section class="row component-section">
-            <div class="pmd-card pmd-card-default pmd-z-depth">
-                <div class="pmd-card-title">
-                    <h2 class="pmd-card-title-text">Title goes here</h2>
-                    <span class="pmd-card-subtitle-text">Secondary text</span>
-                </div>
-                <form class="">
+            <form class="" action="{{ route('performance.store') }}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+                <div class="pmd-card pmd-card-default pmd-z-depth">
+                    <div class="pmd-card-title">
+                        <h2 class="pmd-card-title-text">Title goes here</h2>
+                        <span class="pmd-card-subtitle-text">Secondary text</span>
+                    </div>
+
+                    <div class="pmd-card-actions">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-success waves-effect pmd-btn-raised">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            <button type="button" class="btn btn-default dropdown-toggle pmd-btn-raised" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Insert <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <div class="pmd-card-body">
                         <div class="pmd-card">
                             <div class="table-responsive">
-                                <table class="table pmd-table table-hover">
+                                <table class="table pmd-table table-bordered table-hover">
                                     <colgroup>
+                                        <col width="4%">
+                                        <col width="4%">
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
                                     </colgroup>
                                     <thead>
                                         <tr>
-                                            <th rowspan="2"></th>
-                                            <th rowspan="2"></th>
-                                            <th rowspan="2">Output</th>
+                                            <th rowspan="2" colspan="3">Major Output</th>
                                             <th rowspan="2">Success Indicator</th>
                                             <th rowspan="2" style="text-align: center">Target</th>
                                             <th colspan="6" style="text-align: center">Monthly Targets</th>
@@ -73,238 +99,154 @@
                                     <tbody>
                                         <tr>
                                             <td data-type="number" class="text-center">
-                                                <b>I</b>
+                                                <b>I</b> <input type="text" value="I">
                                             </td>
-                                            <td data-type="number" class="text-center">
-                                            </td>
-                                            <td data-type="title">
+                                            <td data-type="title" colspan="10">
                                                 <div class="form-group pmd-textfield">
-                                                    <textarea required="" class="form-control" placeholder="title"></textarea>
+                                                    <input type="text" class="form-control" placeholder="title" name="maintitle[]">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td data-type="number" class="text-center" colspan="2">
+                                                <b>1</b> 
+                                                <input type="text" value="1" name="level[]">
+                                            </td>
+                                            <td data-type="subtitle" colspan="9">
+                                                <div class="form-group pmd-textfield">
+                                                    <input type="text" class="form-control" placeholder="subtitle" name="subtitle[]">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="text" value="1|1" name="sublevel[]">
+                                            </td>
+                                            <td data-type="subsubtitle">
+                                                <div class="form-group pmd-textfield">
+                                                    <textarea rows="1" class="form-control" placeholder="info title" name="subsubtitle[]"></textarea>
                                                 </div>
                                             </td>
                                             <td data-type="indicator">
                                                 <div class="form-group pmd-textfield">
-                                                    <textarea required="" class="form-control" placeholder="success indicator"></textarea>
+                                                    <textarea rows="1" class="form-control" placeholder="success indicator" name="infotitle"></textarea>
                                                 </div>
                                             </td>
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="target">
                                                 </div>
                                             </td>
                                             <!-- January -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="jantarget">
                                                 </div>
                                             </td>
                                             <!-- February -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="febtarget">
                                                 </div>
                                             </td>
                                             <!-- March -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="martarget">
                                                 </div>
                                             </td>
                                             <!-- April -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="aprtarget">
                                                 </div>
                                             </td>
                                             <!-- May -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="maytarget">
                                                 </div>
                                             </td>
                                             <!-- June -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="juntarget">
                                                 </div>
                                             </td>
                                         </tr>
 
                                         <tr>
-                                            <td data-type="number" class="text-center">
-                                            </td>
-                                            <td data-type="number" class="text-center">
-                                                <b>1</b>
-                                            </td>
-                                            <td data-type="title">
+                                            <td colspan="3"></td>
+                                            <td data-type="indicator">
                                                 <div class="form-group pmd-textfield">
-                                                    <textarea required="" class="form-control" placeholder="subtitle"></textarea>
-                                                </div>
-                                            </td>
-                                            <td data-type="title">
-                                                <div class="form-group pmd-textfield">
-                                                    <textarea required="" class="form-control" placeholder="success indicator"></textarea>
+                                                    <textarea rows="1" class="form-control" placeholder="success indicator" name="infotitle"></textarea>
                                                 </div>
                                             </td>
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="target">
                                                 </div>
                                             </td>
                                             <!-- January -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="jantarget">
                                                 </div>
                                             </td>
                                             <!-- February -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="febtarget">
                                                 </div>
                                             </td>
                                             <!-- March -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="martarget">
                                                 </div>
                                             </td>
                                             <!-- April -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="aprtarget">
                                                 </div>
                                             </td>
                                             <!-- May -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="maytarget">
                                                 </div>
                                             </td>
                                             <!-- June -->
                                             <td data-type="target">
                                                 <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
+                                                    <input type="number" step="1" min="0" class="form-control" name="juntarget">
                                                 </div>
                                             </td>
                                         </tr>
 
-                                        <tr>
-                                            <td data-type="number" class="text-center">
-                                            </td>
-                                            <td data-type="number" class="text-center">
-                                            </td>
-                                            <td data-type="title">
-                                                <div class="form-group pmd-textfield">
-                                                    <textarea required="" class="form-control" placeholder="sub-subtitle"></textarea>
-                                                </div>
-                                            </td>
-                                            <td data-type="title">
-                                                <div class="form-group pmd-textfield">
-                                                    <textarea required="" class="form-control" placeholder="success indicator"></textarea>
-                                                </div>
-                                            </td>
-                                            <td data-type="target">
-                                                <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
-                                                </div>
-                                            </td>
-                                            <!-- January -->
-                                            <td data-type="target">
-                                                <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
-                                                </div>
-                                            </td>
-                                            <!-- February -->
-                                            <td data-type="target">
-                                                <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
-                                                </div>
-                                            </td>
-                                            <!-- March -->
-                                            <td data-type="target">
-                                                <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
-                                                </div>
-                                            </td>
-                                            <!-- April -->
-                                            <td data-type="target">
-                                                <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
-                                                </div>
-                                            </td>
-                                            <!-- May -->
-                                            <td data-type="target">
-                                                <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
-                                                </div>
-                                            </td>
-                                            <!-- June -->
-                                            <td data-type="target">
-                                                <div class="form-group pmd-textfield">
-                                                    <input type="number" step="1" min="0" class="form-control" name="">
-                                                </div>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                </form>
-                <div class="pmd-card-actions">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <span class="dropdown pmd-dropdown clearfix">
-                                <button class="btn pmd-ripple-effect btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Action &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
-                                <ul aria-labelledby="dropdownMenu2" role="menu" class="dropdown-menu">
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">Insert new title</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">Insert new sub-title</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">Insert new info-title</a></li>
-                                </ul>
-                            </span>
-                        </div>
-                        <div class="col-md-1">
-                            <span class="dropdown pmd-dropdown clearfix">
-                                <button class="btn pmd-ripple-effect btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">Start Date &nbsp;<span class="caret"></span></button>
-                                <ul aria-labelledby="dropdownMenu3" role="menu" class="dropdown-menu pmd-dropdown-menu-top-left">
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">January</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">February</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">March</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">April</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">May</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">June</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">July</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">August</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">September</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">October</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">November</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">December</a></li>
-                                </ul>
-                            </span>
-                        </div>
-                        <div class="col-md-1">
-                            <span class="dropdown pmd-dropdown clearfix">
-                                <button class="btn pmd-ripple-effect btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">End Date &nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
-                                <ul aria-labelledby="dropdownMenu3" role="menu" class="dropdown-menu pmd-dropdown-menu-top-left">
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">January</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">February</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">March</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">April</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">May</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">June</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">July</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">August</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">September</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">October</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">November</a></li>
-                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">December</a></li>
-                                </ul>
-                            </span>
+                    <div class="pmd-card-actions">
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-success waves-effect pmd-btn-raised">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            <button type="button" class="btn btn-default dropdown-toggle pmd-btn-raised" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Insert <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Separated link</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </section> 
         <!-- table card end -->
     </div><!-- tab end -->
@@ -314,6 +256,6 @@
 @section('scripts')
 <script src="{{ asset('js/autosize.js') }}"></script>
 <script>
-    autosize(document.querySelectorAll('textarea'));
+    autosize($('textarea'));
 </script>
 @endsection
