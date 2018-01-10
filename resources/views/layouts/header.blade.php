@@ -31,7 +31,7 @@
                             <a href="javascript:void(0)">
                                 <div class="media-left">
                                     <span class="avatar-list-img40x40">
-                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-1.png" data-holder-rendered="true">
+                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{ asset('themes/images/profile-1.png') }}" data-holder-rendered="true">
                                     </span>
                                 </div>
                                 <div class="media-body">
@@ -44,7 +44,7 @@
                             <a href="javascript:void(0)">
                                 <div class="media-left">
                                     <span class="avatar-list-img40x40">
-                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-2.png" data-holder-rendered="true">
+                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{ asset('themes/images/profile-2.png') }}" data-holder-rendered="true">
                                     </span>
                                 </div>
                                 <div class="media-body">
@@ -57,7 +57,7 @@
                             <a href="javascript:void(0)">
                                 <div class="media-left">
                                     <span class="avatar-list-img40x40">
-                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-3.png" data-holder-rendered="true">
+                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{ asset('themes/images/profile-3.png') }}" data-holder-rendered="true">
                                     </span>
                                 </div>
                             
@@ -71,7 +71,7 @@
                             <a href="javascript:void(0)">
                                 <div class="media-left">
                                     <span class="avatar-list-img40x40">
-                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-4.png" data-holder-rendered="true">
+                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{ asset('themes/images/profile-4.png') }}" data-holder-rendered="true">
                                     </span>
                                 </div>
                                 <div class="media-body">

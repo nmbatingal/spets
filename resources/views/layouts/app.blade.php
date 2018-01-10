@@ -47,6 +47,11 @@
         <!--content area start-->
         @yield('content')
         <!-- content area end -->
+
+        <!--content area start
+        include('layouts.footer')
+         content area end -->
+
         
     </div>
 
@@ -55,6 +60,9 @@
     <script src="{{ asset('assets/js/jquery-1.12.2.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/propeller.min.js') }}"></script>
+
+    <script src="{{ asset('bower/jquery.nicescroll/jquery.nicescroll.min.js') }}" type="text/javascript"></script>
+
     <!-- /build -->
     <script>
         $(document).ready(function() {
@@ -68,10 +76,13 @@
             });
             $(".auto-update-year").html(new Date().getFullYear());
         });
-    </script> 
+    </script>
 
     <!-- Scripts Ends -->
 
     @yield('scripts')
+
+    <script src="{{ asset('js/common-scripts.js') }}"></script>
+    
 </body>
 </html>

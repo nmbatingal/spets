@@ -8,7 +8,7 @@
         <li class="dropdown pmd-dropdown pmd-user-info visible-xs visible-md visible-sm visible-lg">
             <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" aria-expandedhref="javascript:void(0);">
                 <div class="media-left">
-                    <img src="themes/images/user-icon.png" alt="New User">
+                    <img src="{{ asset('themes/images/user-icon.png') }}" alt="New User">
                 </div>
                 <div class="media-body media-middle">{{ Auth::user()->firstname }}</div>
                 <div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
@@ -45,47 +45,21 @@
             </a> 
         </li>
         
-        <li class="dropdown pmd-dropdown"> 
-            <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">  
+        <li class="dropdown pmd-dropdown {{ Request::is('performance/*') ? 'open' : '' }}"> 
+            <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media {{ Request::is('performance/*') ? 'active' : '' }}" data-sidebar="true" href="javascript:void(0);">  
                 <i class="media-left media-middle">
-                    <svg version="1.1" x="0px" y="0px" width="18px" height="18.001px" viewBox="0 0 18 18.001" enable-background="new 0 0 18 18.001" xml:space="preserve">
-                        <path fill="#C9C8C8" d="M6.188,0.001C5.232,0.001,4.5,0.732,4.5,1.688c0,0.394,0.166,0.739,0.334,1.02L5.45,3.71
-                            c0.113,0.113,0.176,0.341,0.176,0.51v0.281c0,0.619-0.506,1.125-1.125,1.125H0.282c-0.169,0-0.281,0.112-0.281,0.281V17.72
-                            c0,0.168,0.112,0.281,0.281,0.281h4.219c0.619,0,1.125-0.506,1.125-1.125v-0.281c0-0.168-0.063-0.397-0.176-0.509
-                            c0,0-0.615-0.946-0.615-1.002C4.666,14.802,4.5,14.457,4.5,14.063c0-0.956,0.731-1.688,1.688-1.688s1.688,0.731,1.688,1.688
-                            c0,0.394-0.166,0.739-0.334,1.02l-0.616,1.002c-0.056,0.112-0.176,0.341-0.176,0.509v0.281c0,0.619,0.506,1.125,1.125,1.125h4.219
-                            c0.168,0,0.281-0.113,0.281-0.281V13.5c0-0.619,0.506-1.125,1.125-1.125h0.281c0.169,0,0.396,0.063,0.51,0.176
-                            c0,0,0.945,0.616,1.002,0.616c0.337,0.168,0.626,0.334,1.02,0.334c0.956,0,1.687-0.731,1.687-1.687c0-0.957-0.731-1.688-1.687-1.688
-                            c-0.394,0-0.738,0.166-1.02,0.334l-1.002,0.616c-0.113,0.056-0.341,0.176-0.51,0.176H13.5c-0.619,0-1.125-0.506-1.125-1.125V5.908
-                            c0-0.168-0.113-0.281-0.281-0.281H7.875c-0.619,0-1.125-0.506-1.125-1.125V4.221c0-0.168,0.063-0.397,0.176-0.51
-                            c0,0,0.616-0.945,0.616-1.001c0.168-0.281,0.334-0.626,0.334-1.02C7.875,0.733,7.144,0.002,6.188,0.001L6.188,0.001z"/>
-                    </svg>
+                    <div class="material-icons md-light">trending_up</div>
                 </i> 
-                <span class="media-body">UI Elements</span>
+                <span class="media-body">My Performance</span>
                 <div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
             </a> 
             <ul class="dropdown-menu">
-                <li><a href="typography.html">Typography</a></li>
-                <li><a href="icons.html">Icons</a></li>
-                <li><a href="shadow.html">Shadow</a></li>
-                <li><a href="accordion.html">Accordion</a></li>
-                <li><a href="alert.html">Alert</a></li>
-                <li><a href="badge.html">Badge</a></li>
-                <li><a href="button.html">Button</a></li>
-                <li><a href="modal.html">Modal</a></li>
-                <li><a href="dropdown.html">Dropdown</a></li>
-                <li><a href="list.html">List</a></li>
-                <li><a href="navbar.html">Navbar</a></li>
-                <li><a href="popover.html">Popover</a></li>
-                <li><a href="progressbar.html">Progressbar</a></li>
-                <!--<li><a href="sidebar.html">Sidebar</a></li> -->
-                <li><a href="tab.html">Tab</a></li>
-                <li><a href="tooltip.html">Tooltip</a></li>
-                <li><a href="card.html">Card</a></li>
-                <li><a href="floating-button.html">Floating Action Button</a></li>
+                <li><a href="{{ route('performance.individual') }}" class="{{ Request::is('performance/individual') ? 'active' : '' }} {{ Request::is('performance/individual/*') ? 'active' : '' }}">Individual Performance</a></li>
+                <li><a href="">Office Performance</a></li>
             </ul>
         </li>
-        <li class="dropdown pmd-dropdown"> 
+
+        <!-- <li class="dropdown pmd-dropdown"> 
             <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">  
                 <i class="material-icons media-left pmd-sm">swap_calls</i> 
                 <span class="media-body">Third Party Elements</span>
@@ -189,7 +163,7 @@
                 </svg></i> 
                 <span class="media-body">Notifications</span>
             </a> 
-        </li>
+        </li> -->
         
     </ul>
 </aside>
