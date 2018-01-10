@@ -50,9 +50,9 @@ class PerformanceController extends Controller
                 
                 $subOutput = new SubOutput();
 
-                $subOutput->level
+                /*$subOutput->level
                 $subOutput->subtitle
-                $subOutput->level
+                $subOutput->level*/
 
             }
         }
