@@ -13,8 +13,13 @@ class PerformanceTable extends Model
      */
     protected $table = 'performance_tables';
 
-    public function majorOutputs()
+    /*public function majorOutputs()
     {
         return $this->hasMany('App\MajorOutput', 'perform_id');
+    }*/
+
+    public function outputIndicators()
+    {
+        return $this->hasMany('App\OutputIndicators', 'mfo_id');
     }
 }

@@ -25,8 +25,12 @@ Route::get('/dashboard', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
 
-	/*** My Performance ***/
-	Route::get('/performance/individual', 'PerformanceController@index')->name('performance.individual');
-	Route::get('/performance/individual/create', 'PerformanceController@create')->name('performance.create');
-	Route::post('/performance/individual/store', 'PerformanceController@store')->name('performance.store');
+    /*** My Performance ***/
+    Route::get('/performance/individual', 'PerformanceController@index')->name('performance.individual');
+    Route::get('/performance/individual/{id}/record', 'PerformanceController@show')->name('performance.showRecord');
+    Route::get('/performance/individual/create', 'PerformanceController@create')->name('performance.create');
+    Route::post('/performance/individual/store', 'PerformanceController@store')->name('performance.store');
+    /*Route::post('/performance/individual/store', function(){
+        return print_r($_POST);
+    })->name('performance.store');*/
 });

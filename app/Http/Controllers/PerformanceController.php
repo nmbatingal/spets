@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\PerformanceTable as IPC;
-use App\MajorOutput as MajorOutput;
-use App\MajorSubOutput as SubOutput;
 use App\OutputIndicators as OutputIndicators;
 
 class PerformanceController extends Controller
@@ -15,10 +14,15 @@ class PerformanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private function _user() {
+
+    }
+
     public function index()
     {
-        $outputs = MajorOutput::all();
-        return view('myperformance.indiperform', compact('outputs'));
+        $records = IPC::where('owner_id', Auth::user()->id )->get();
+        return view('myperformance.index', compact('records'));
     }
 
     /**
@@ -38,6 +42,33 @@ class PerformanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    {
+        $ipcr = new IPC();
+        $ipcr->owner_id  = $request['user_id'];
+        $ipcr->textfield = $request['record_name'];
+        $ipcr->save();
+
+        foreach ($request->majorOutput as $i => $output) {
+
+            $majorOutput = new OutputIndicators();
+
+            $majorOutput->major_output      = $output;
+            $majorOutput->indicator_measure = $request['indicatorMeasure'][$i];
+            $majorOutput->targets           = $request['overallTgt'][$i];
+            $majorOutput->jan_total         = $request['janTgt'][$i];
+            $majorOutput->feb_total         = $request['febTgt'][$i];
+            $majorOutput->mar_total         = $request['marTgt'][$i];
+            $majorOutput->apr_total         = $request['aprTgt'][$i];
+            $majorOutput->may_total         = $request['mayTgt'][$i];
+            $majorOutput->jun_total         = $request['junTgt'][$i];
+
+            $majorOutput->majorPerform()->associate($ipcr);
+            $majorOutput->save();
+        }
+    }
+
+    // for form-sub2 function
+    /*public function store(Request $request)
     {
         $ipcr = new IPC();
         $ipcr->owner_id = $request['user_id'];
@@ -98,7 +129,7 @@ class PerformanceController extends Controller
 
             }
         }
-    }
+    }*/
 
     /**
      * Display the specified resource.
@@ -108,7 +139,8 @@ class PerformanceController extends Controller
      */
     public function show($id)
     {
-        //
+        $outputs = OutputIndicators::where('mfo_id', $id)->get();
+        return view('myperformance.record', compact('outputs'));
     }
 
     /**

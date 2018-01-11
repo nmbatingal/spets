@@ -22,11 +22,6 @@ class CreatePerformanceTablesTable extends Migration
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
-
-        Schema::table('major_outputs', function($table) {
-            $table->integer('perform_id')->after('title')->unsigned();
-            $table->foreign('perform_id')->references('id')->on('performance_tables')->onDelete('cascade');
-        });
     }
 
     /**
@@ -36,7 +31,6 @@ class CreatePerformanceTablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('major_outputs');
         Schema::dropIfExists('performance_tables');
     }
 }
