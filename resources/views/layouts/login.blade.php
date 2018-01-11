@@ -10,10 +10,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Login | Laravel</title>
-    <link rel="shortcut icon" type="image/x-icon" href="themes/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('themes/images/favicon.ico') }}">
 
     <!-- Google icon -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower/bootstrap-material-design-icons/css/material-icons.css') }}">
 
     <!-- Bootstrap css -->
     <!-- build:[href] assets/css/ -->

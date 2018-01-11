@@ -17,7 +17,8 @@ class CreatePerformanceTablesTable extends Migration
 
         Schema::create('performance_tables', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('textfield')->nullable();
+            $table->string('record_title', 100);
+            $table->text('description')->nullable();
             $table->integer('owner_id')->unsigned();
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

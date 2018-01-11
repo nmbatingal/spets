@@ -30,7 +30,7 @@
     <div class="container-fluid full-width-container">
         <!--- Title -->
         <h1 class="section-title" id="services">
-            <span>My Performance</span>
+            <span>Individual Performance</span>
         </h1>
         <!-- End Title -->
     
@@ -42,52 +42,57 @@
         <!--breadcrum end-->
 
         <section class="row component-section">
-            <div class="pmd-card pmd-z-depth">
-                <div class="pmd-card-title">
-                    <h2 class="pmd-card-title-text">Title goes here</h2>
-                    <span class="pmd-card-subtitle-text">Secondary text</span>
-                </div>
-                <div class="pmd-card-actions">
-                    <a class="btn pmd-btn-raised pmd-ripple-effect btn-success" href="{{ route('performance.create') }}">Create New Performance Tracker</a>
+            <div class="col-md-12">
+                <div class="pmd-card pmd-z-depth">
+                    <div class="pmd-card-title">
+                        <h2 class="pmd-card-title-text">Title goes here</h2>
+                        <span class="pmd-card-subtitle-text">Secondary text</span>
+                    </div>
+                    <div class="pmd-card-actions">
+                        <a class="btn pmd-btn-raised pmd-ripple-effect btn-success" href="{{ route('performance.create') }}">Create New Performance Tracker</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="row component-section">
-            <div class="pmd-card pmd-z-depth">
-                @foreach($records as $record)
-                    <ul class="list-group pmd-z-depth pmd-list pmd-card-list">
-                        <li class="list-group-item">
-                            <div class="media-body media-middle">
-                                <a href="{{ route('performance.showRecord', ['id' => $record['id']]) }}"> 
-                                    <h3 class="list-group-item-heading">{{ $record['textfield'] }}</h3>
-                                    <span class="list-group-item-text">Secondary text</span>
-                                </a>
-                            </div>
-                            <div class="media-body media-right"> 
-                                <a class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-sm btn-success" type="button"><i class="material-icons pmd-sm">open_in_new</i></a>
-                                <a class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-sm btn-danger" type="button"><i class="material-icons pmd-sm">delete</i></a>
-                            </div>
-                        </li>
-                    </ul>
-                @endforeach
+            <div class="col-md-6">
+                <div class="pmd-card pmd-z-depth">
+                    @if( count($records) > 0 )
+                        @foreach($records as $record)
+                            <ul class="list-group pmd-z-depth pmd-list pmd-card-list">
+                                <li class="list-group-item">
+                                    <div class="media-body media-middle">
+                                        <a href="{{ route('performance.showRecord', ['id' => $record['id']]) }}"> 
+                                            <h3 class="list-group-item-heading">{{ $record['record_title'] }}</h3>
+                                            <span class="list-group-item-text">{{ $record['description'] }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="media-body media-right"> 
+                                        <div class="pull-right">
+                                            <a href="{{ route('performance.showRecord', ['id' => $record['id']]) }}" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-sm btn-success" type="button"><i class="material-icons pmd-sm">open_in_new</i></a>
+                                            <a class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-sm btn-danger" type="button"><i class="material-icons pmd-sm">delete</i></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endforeach
+                    @else
+                        <ul class="list-group pmd-z-depth pmd-list pmd-card-list">
+                            <li class="list-group-item">
+                                <div class="media-body media-left">
+                                    <i class="material-icons media-left pmd-sm">error_outline</i>
+                                    <span class="media-body">no record found</span>
+                                </div>
+                            </li>
+                        </ul>
+                    @endif
+                </div>
             </div>
         </section>
-
     </div><!-- tab end -->
 </div>
 @endsection
 
 @section('scripts')
-<!-- Datatable js -->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-
-<!-- Datatable Bootstrap -->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-
-<!-- Datatable responsive js-->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
-
-<!-- Datatable select js-->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
 @endsection

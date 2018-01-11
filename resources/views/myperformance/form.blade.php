@@ -54,7 +54,7 @@
                             </h2>
                             <span class="pmd-card-subtitle-text">
                                 <div class="form-group pmd-textfield form-group-sm">
-                                    <textarea rows="1" class="form-control" placeholder="Secondary text"></textarea>
+                                    <textarea rows="1" class="form-control" placeholder="Secondary text" name="description"></textarea>
                                 </div>
                             </span> 
                         </div>
@@ -167,8 +167,6 @@
             <section class="row component-section">
                 <div class="col-md-12"> 
                     <!-- Card header -->
-                    <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form">
-                        <div class="pmd-card-actions">
                             <div class="btn-group">
                                 <button type="submit" class="btn btn-success pmd-ripple-effect pmd-btn-raised">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SAVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                 <button type="button" class="btn btn-default pmd-ripple-effect dropdown-toggle pmd-btn-raised" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -178,8 +176,6 @@
                                     <li><a href="javascript:void(0);" class="btn-add-row waves-effect waves-block">Insert row</a></li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
                 </div>
             </section>
         </form>

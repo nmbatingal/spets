@@ -256,9 +256,9 @@
                                     </div>
 
                                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                                        <label for="inputError1" class="control-label pmd-input-group-label">Email address</label>
+                                        <label for="inputError1" class="control-label pmd-input-group-label">Username</label>
                                         <div class="input-group">
-                                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">email</i></div>
+                                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">person</i></div>
                                             <input type="text" class="form-control">
                                         </div>
                                     </div>
@@ -272,11 +272,21 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                                        <label for="inputError1" class="control-label pmd-input-group-label">Password</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
-                                            <input type="text" class="form-control">
+                                    <div class="group-fields clearfix row">
+                                        <div class="col-md-6">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                                <label for="inputError1" class="control-label pmd-input-group-label">Password</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                                <label for="inputError1" class="control-label">Confirm password</label>
+                                                <input type="text" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
                               </div>

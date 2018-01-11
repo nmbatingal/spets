@@ -44,8 +44,9 @@ class PerformanceController extends Controller
     public function store(Request $request)
     {
         $ipcr = new IPC();
-        $ipcr->owner_id  = $request['user_id'];
-        $ipcr->textfield = $request['record_name'];
+        $ipcr->record_title = $request['record_name'];
+        $ipcr->description  = $request['description'];
+        $ipcr->owner_id     = $request['user_id'];
         $ipcr->save();
 
         foreach ($request->majorOutput as $i => $output) {
@@ -65,6 +66,8 @@ class PerformanceController extends Controller
             $majorOutput->majorPerform()->associate($ipcr);
             $majorOutput->save();
         }
+
+        return redirect()->route('performance.showRecord', ['id' => $majorOutput->id]);
     }
 
     // for form-sub2 function
@@ -139,9 +142,10 @@ class PerformanceController extends Controller
      */
     public function show($id)
     {
-        $record  = IPC::find($id );
+        $record  = IPC::find($id);
         $outputs = OutputIndicators::where('mfo_id', $id)->get();
-        return view('myperformance.record', compact('outputs', 'record'));
+
+        return view('myperformance.record', compact( 'record', 'outputs'));
     }
 
     /**

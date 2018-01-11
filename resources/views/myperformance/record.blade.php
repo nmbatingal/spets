@@ -19,7 +19,7 @@
         padding-bottom: 0 !important;
     }
     .text-center {
-        text-align: right !important;
+        text-align: center !important;
     }
 </style>
 @endsection
@@ -30,7 +30,7 @@
     <div class="container-fluid full-width-container">
         <!--- Title -->
         <h1 class="section-title" id="services">
-            <span>{{ $record['textfield'] }}</span>
+            <span>My Record</span>
         </h1>
         <!-- End Title -->
     
@@ -45,8 +45,8 @@
         <section class="row component-section">
             <div class="pmd-card pmd-z-depth">
                 <div class="pmd-card-title">
-                    <h2 class="pmd-card-title-text">Title goes here</h2>
-                    <span class="pmd-card-subtitle-text">Secondary text</span>
+                    <h2 class="pmd-card-title-text">{{ $record['record_title'] }}</h2>
+                    <span class="pmd-card-subtitle-text">{{ $record['description'] }}</span>
                 </div>
             </div>
         </section>
@@ -60,8 +60,8 @@
                     <div class="table-responsive table-striped table-bordered">
                         <table class="table">
                             <colgroup>
-                                <col>
-                                <col>
+                                <col width="30%">
+                                <col width="30%">
                                 <col width="2%">
                                 <col width="2%">
                                 <col width="2%">
@@ -80,7 +80,7 @@
                                 <col width="2%">
                                 <col width="2%">
                                 <col width="2%">
-                                <col width="5%">
+                                <col width="4%">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -119,31 +119,33 @@
                                 </tr>
                              </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td data-for="target"></td>
-                                    <td data-for="accomp"></td>
-                                    <td data-for="perc"></td>
-                                    <td data-for="target"></td>
-                                    <td data-for="accomp"></td>
-                                    <td data-for="perc"></td>
-                                    <td data-for="target"></td>
-                                    <td data-for="accomp"></td>
-                                    <td data-for="perc"></td>
-                                    <td data-for="target"></td>
-                                    <td data-for="accomp"></td>
-                                    <td data-for="perc"></td>
-                                    <td data-for="target"></td>
-                                    <td data-for="accomp"></td>
-                                    <td data-for="perc"></td>
-                                    <td data-for="target"></td>
-                                    <td data-for="accomp"></td>
-                                    <td data-for="perc"></td>
-                                    <td>
-                                        <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button"><i class="material-icons pmd-sm">mode_edit</i></button>
-                                    </td>
-                                </tr>
+                                @foreach($outputs as $output)
+                                    <tr>
+                                        <td>{{ $output['major_output'] }}</td>
+                                        <td>{{ $output['indicator_measure'] }}</td>
+                                        <td data-for="target">{{ $output['jan_total'] }}</td>
+                                        <td data-for="accomp"></td>
+                                        <td data-for="perc"></td>
+                                        <td data-for="target">{{ $output['feb_total'] }}</td>
+                                        <td data-for="accomp"></td>
+                                        <td data-for="perc"></td>
+                                        <td data-for="target">{{ $output['mar_total'] }}</td>
+                                        <td data-for="accomp"></td>
+                                        <td data-for="perc"></td>
+                                        <td data-for="target">{{ $output['apr_total'] }}</td>
+                                        <td data-for="accomp"></td>
+                                        <td data-for="perc"></td>
+                                        <td data-for="target">{{ $output['may_total'] }}</td>
+                                        <td data-for="accomp"></td>
+                                        <td data-for="perc"></td>
+                                        <td data-for="target">{{ $output['jun_total'] }}</td>
+                                        <td data-for="accomp"></td>
+                                        <td data-for="perc"></td>
+                                        <td>
+                                            <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button"><i class="material-icons pmd-sm">mode_edit</i></button>
+                                        </td>
+                                    </tr>
+                                @endforeach
                           </tbody>
                         </table>
                     </div>
