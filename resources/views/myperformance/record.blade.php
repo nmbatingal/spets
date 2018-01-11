@@ -30,14 +30,15 @@
     <div class="container-fluid full-width-container">
         <!--- Title -->
         <h1 class="section-title" id="services">
-            <span>My Performance</span>
+            <span>{{ $record['textfield'] }}</span>
         </h1>
         <!-- End Title -->
     
         <!--breadcrum start-->
         <ol class="breadcrumb text-left">
             <li><a href="{{ route('home') }}">Dashboard</a></li>
-            <li class="active">Individual Performance</li>
+            <li><a href="{{ route('performance.individual') }}">Individual Performance</a></li>
+            <li class="active">My Record</li>
         </ol>
         <!--breadcrum end-->
 
@@ -46,9 +47,6 @@
                 <div class="pmd-card-title">
                     <h2 class="pmd-card-title-text">Title goes here</h2>
                     <span class="pmd-card-subtitle-text">Secondary text</span>
-                </div>
-                <div class="pmd-card-actions">
-                    <a class="btn pmd-btn-raised pmd-ripple-effect btn-success" href="{{ route('performance.create') }}">Create Performance Tracker</a>
                 </div>
             </div>
         </section>
