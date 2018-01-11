@@ -147,43 +147,43 @@
                                                         </td>
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="target">
+                                                                <input type="number" step="1" min="0" class="form-control" name="target[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- January -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- February -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- March -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="martarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="martarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- April -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- May -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- June -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -196,43 +196,43 @@
                                                         </td>
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="target">
+                                                                <input type="number" step="1" min="0" class="form-control" name="target[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- January -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- February -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- March -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="martarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="martarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- April -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- May -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- June -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget[1|1|1][]">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -327,43 +327,43 @@
                                                         </td>
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="target">
+                                                                <input type="number" step="1" min="0" class="form-control" name="target[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- January -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- February -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- March -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="martarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="martarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- April -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- May -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- June -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -376,43 +376,43 @@
                                                         </td>
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="target">
+                                                                <input type="number" step="1" min="0" class="form-control" name="target[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- January -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="jantarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- February -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="febtarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- March -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="martarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="martarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- April -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="aprtarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- May -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="maytarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                         <!-- June -->
                                                         <td data-type="target">
                                                             <div class="form-group pmd-textfield">
-                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget">
+                                                                <input type="number" step="1" min="0" class="form-control" name="juntarget[2|1|1][]">
                                                             </div>
                                                         </td>
                                                     </tr>

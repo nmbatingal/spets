@@ -76,35 +76,28 @@ class PerformanceController extends Controller
             $majorOutput->save();
 
             $indicators = $request->indicator;
-            foreach ($indicators[$level] as $indicator) {
+            foreach ($indicators[$level] as $i => $indicator) {
                 
                 $output = new OutputIndicators();
 
-                $output->indicator = $indicator;
+                $output->indicator  = $indicator;
+                //$output->targets    = $request->input('indicator.'.$level.'.target.'.$i);
+                //$output->targets    = $request->input('target.'.$level.'.'.$i);
+                //$output->targets    = $request['target'][$i];
+
+                $output->targets    = $request->target[$level][$i];
+                $output->jan_total  = $request->jantarget[$level][$i];
+                $output->feb_total  = $request->febtarget[$level][$i];
+                $output->mar_total  = $request->martarget[$level][$i];
+                $output->apr_total  = $request->aprtarget[$level][$i];
+                $output->may_total  = $request->maytarget[$level][$i];
+                $output->jun_total  = $request->juntarget[$level][$i];
+
                 $output->majorOutput()->associate($majorOutput);
                 $output->save();
 
             }
         }
-
-        /*foreach ($request['maintitle'] as $i => $maintitle) {
-
-            $majorOutput = new MajorOutput();
-
-            $majorOutput->title       = $maintitle;
-            $majorOutput->owner_id    = $request['user_id'];
-            $majorOutput->save();
-
-            foreach ($request['subtitle'] as $i => $subtitle) {
-                
-                $subOutput = new SubOutput();
-
-                /*$subOutput->level
-                $subOutput->subtitle
-                $subOutput->level
-
-            }
-        }*/
     }
 
     /**
