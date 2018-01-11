@@ -13,8 +13,8 @@ class OutputIndicators extends Model
      */
     protected $table = 'output_indicators';
 
-    public function majorSubOutput()
+    public function majorOutput()
     {
-        return $this->belongsTo('App\MajorSubOutput', 'mfo_sub_id', 'id');
+        return $this->belongsTo('App\MajorOutput', 'mfo_id', 'id');
     }
 }

@@ -15,20 +15,16 @@ class CreateMajorSubOutputsTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
          
-        if (Schema::hasTable('major_sub_outputs')) {
-            Schema::dropIfExists('major_sub_outputs');
-        } else {
-            Schema::create('major_sub_outputs', function (Blueprint $table) {
-                $table->increments('id');
-                $table->integer('level');
-                $table->integer('sublevel')->nullable();
-                $table->string('subtitle', 300);
-                $table->integer('total')->nullable();
-                $table->integer('mfo_id')->unsigned();
-                $table->foreign('mfo_id')->references('id')->on('major_outputs')->onDelete('cascade');
-                $table->timestamps();
-            });
-        }
+        /*Schema::create('major_sub_outputs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('level');
+            $table->integer('sublevel')->nullable();
+            $table->string('subtitle', 300);
+            $table->integer('total')->nullable();
+            $table->integer('mfo_id')->unsigned();
+            $table->foreign('mfo_id')->references('id')->on('major_outputs')->onDelete('cascade');
+            $table->timestamps();
+        });*/
     }
 
     /**

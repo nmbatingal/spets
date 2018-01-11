@@ -12,9 +12,14 @@ class MajorOutput extends Model
      * @var string
      */
     protected $table = 'major_outputs';
-
-    public function majorSubOutput()
+    
+    public function majorPerform()
     {
-        return $this->hasMany('App\MajorSubOutput', 'mfo_id');
+        return $this->belongsTo('App\PerformanceTable', 'perform_id', 'id');
+    }
+
+    public function outputIndicators()
+    {
+        return $this->hasMany('App\OutputIndicators', 'mfo_id');
     }
 }

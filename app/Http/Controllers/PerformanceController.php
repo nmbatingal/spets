@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PerformanceTable as IPC;
 use App\MajorOutput as MajorOutput;
 use App\MajorSubOutput as SubOutput;
+use App\OutputIndicators as OutputIndicators;
 
 class PerformanceController extends Controller
 {
@@ -37,8 +39,55 @@ class PerformanceController extends Controller
      */
     public function store(Request $request)
     {
+        $ipcr = new IPC();
+        $ipcr->owner_id = $request['user_id'];
+        $ipcr->save();
 
-        foreach ($request['maintitle'] as $i => $maintitle) {
+        $mainLevel = $request->maintitle;
+        foreach ($mainLevel['level'] as $i => $level) {
+
+            $majorOutput = new MajorOutput();
+
+            $majorOutput->level = $level;
+            $majorOutput->title = $mainLevel['title'][$i];
+            $majorOutput->majorPerform()->associate($ipcr);
+            $majorOutput->save();
+        }
+
+        $sublevel = $request->subtitle;
+        foreach ($sublevel['level'] as $i => $level) {
+
+            $majorOutput = new MajorOutput();
+
+            $majorOutput->level = $level;
+            $majorOutput->title = $sublevel['title'][$i];
+            $majorOutput->majorPerform()->associate($ipcr);
+            $majorOutput->save();
+        }
+
+        $subSubLevel = $request->subsubtitle;
+        foreach ($subSubLevel['level'] as $i => $level) {
+
+            $majorOutput = new MajorOutput();
+
+            $majorOutput->level = $level;
+            $majorOutput->title = $subSubLevel['title'][$i];
+            $majorOutput->majorPerform()->associate($ipcr);
+            $majorOutput->save();
+
+            $indicators = $request->indicator;
+            foreach ($indicators[$level] as $indicator) {
+                
+                $output = new OutputIndicators();
+
+                $output->indicator = $indicator;
+                $output->majorOutput()->associate($majorOutput);
+                $output->save();
+
+            }
+        }
+
+        /*foreach ($request['maintitle'] as $i => $maintitle) {
 
             $majorOutput = new MajorOutput();
 
@@ -52,10 +101,10 @@ class PerformanceController extends Controller
 
                 /*$subOutput->level
                 $subOutput->subtitle
-                $subOutput->level*/
+                $subOutput->level
 
             }
-        }
+        }*/
     }
 
     /**

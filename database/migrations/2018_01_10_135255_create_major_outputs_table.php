@@ -15,18 +15,12 @@ class CreateMajorOutputsTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
         
-            
-        if (Schema::hasTable('major_outputs')) {
-            Schema::dropIfExists('major_outputs');
-        } else {
-            Schema::create('major_outputs', function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('title', 200);
-                $table->integer('owner_id')->unsigned();
-                $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
-                $table->timestamps();
-            });
-        }
+        Schema::create('major_outputs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->char('level', 9);
+            $table->string('title', 200);
+            $table->timestamps();
+        });
     }
 
     /**
