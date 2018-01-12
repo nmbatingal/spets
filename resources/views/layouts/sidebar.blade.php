@@ -69,7 +69,7 @@
             </a> 
             <ul class="dropdown-menu">
                 <li><a href="{{ route('accounts.users') }}" class="{{ Request::is('accounts/users') ? 'active' : '' }} {{ Request::is('accounts/users/*') ? 'active' : '' }}">Users</a></li>
-                <li><a href="">Groups</a></li>
+                <li><a href="{{ route('accounts.groups') }}" class="{{ Request::is('accounts/groups') ? 'active' : '' }} {{ Request::is('accounts/groups/*') ? 'active' : '' }}">Groups</a></li>
             </ul>
         </li>
 

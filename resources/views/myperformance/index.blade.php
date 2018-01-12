@@ -64,7 +64,7 @@
                                 <li class="list-group-item">
                                     <div class="media-body media-middle">
                                         <a href="{{ route('performance.showRecord', ['id' => $record['id']]) }}"> 
-                                            <h3 class="list-group-item-heading">{{ $record['record_title'] }}</h3>
+                                            <h3 class="list-group-item-heading"><b>{{ $record['record_title'] }}</b></h3>
                                             <span class="list-group-item-text">{{ $record['description'] }}</span>
                                         </a>
                                     </div>

@@ -64,13 +64,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         return User::create([
             'firstname'     => ucwords($data['firstname']),
             'middlename'    => ucwords($data['middlename']),
             'lastname'      => ucwords($data['lastname']),
             'username'      => $data['username'],
             'email'         => $data['email'],
+            'mobile_number' => $data['contact_number'], 
+            'division_unit' => $data['division_unit'], 
+            'position'      => $data['position'],
+            '__img   '      => "themes/images/user-icon.png",
             'password'      => bcrypt($data['password']),
         ]);
     }

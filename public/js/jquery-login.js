@@ -12,6 +12,9 @@ $(function () {
                 required   : true,
                 email      : true
             },
+            contact_number : {
+                required   : true,
+            },
             password    : {
                 required   : true,
                 minlength  : 6
@@ -61,5 +64,10 @@ $(function () {
             $(element).parents('.form-group').append(error);
         }
     });
+
+    //Masked Input ============================================================================================================================
+    var $demoMaskedInput = $('.masked-input');
+
+    $demoMaskedInput.find('.mobile-phone-number').inputmask('+63 999 999 9999', { placeholder: '+__ ___ ___ ____' });
 
 });

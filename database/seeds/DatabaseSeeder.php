@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 'user_level'    => 5,
                 'status'        => 1,
                 '__is'          => 1,
+                '__img'         => "themes/images/user-icon.png",
             ],
         ];
 

@@ -30,14 +30,14 @@
     <div class="container-fluid full-width-container">
         <!--- Title -->
         <h1 class="section-title" id="services">
-            <span>User Accounts</span>
+            <span>User Groups</span>
         </h1>
         <!-- End Title -->
     
         <!--breadcrum start-->
         <ol class="breadcrumb text-left">
             <li><a href="{{ route('home') }}">Dashboard</a></li>
-            <li class="active">User Accounts</li>
+            <li class="active">User Groups</li>
         </ol>
         <!--breadcrum end-->
 
@@ -55,26 +55,24 @@
         <section class="row component-section">
             <div class="col-md-4">
                 <div class="pmd-card pmd-z-depth">
-                    @if( count($users) > 0 )
-                        @foreach($users as $user)
+                    @if( count($groups) > 0 )
+                        @foreach($groups as $group)
                             <ul class="list-group pmd-z-depth pmd-list pmd-card-list">
                                 <li class="list-group-item">
                                     <div class="media-left">
                                         <a href="javascript:void(0);" class="avatar-list-img">
-                                            <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{ asset($user['__img']) }}" data-holder-rendered="true">
+                                            <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{ asset('themes/images/user-icon.png') }}" data-holder-rendered="true">
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <a href="{{ route('performance.showRecord', ['id' => $user['id']]) }}"> 
-                                            <h3 class="list-group-item-heading"><b>{{ $user['firstname'] }} {{ !empty($user['middlename']) ? $user['middlename'][0].'. ' : '' }}{{ $user['lastname'] }}</b></h3>
+                                        <a href="{{ route('performance.showRecord', ['id' => $group['id']]) }}"> 
+                                            <h3 class="list-group-item-heading"><b>{{ $group['firstname'] }}</b></h3>
                                             <span class="list-group-item-text">Position - Office</span>
                                         </a>
                                     </div>
                                     <div class="media-right"> 
                                         <div class="pull-right">
-                                            @if ( $user['__is'] > 0 )
-                                                <span class="badge badge-warning">admin</span>
-                                            @endif
+                                            <span class="badge badge-warning">admin</span>
                                         </div>
                                     </div>
                                 </li>

@@ -32,5 +32,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/performance/individual/store', 'PerformanceController@store')->name('performance.store');
 
     // ACCOUNTS
-    Route::get('/accounts/users', 'UsersController@index')->name('accounts.users');
+    Route::get('/accounts/users', 'UsersController@index')->name('accounts.users');			// user
+    Route::get('/accounts/groups', 'GroupsController@index')->name('accounts.groups');		// group
 });
