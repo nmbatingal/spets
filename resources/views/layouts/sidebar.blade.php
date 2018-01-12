@@ -58,6 +58,22 @@
                 <li><a href="">Office Performance</a></li>
             </ul>
         </li>
+        
+        <li class="dropdown pmd-dropdown {{ Request::is('accounts/*') ? 'open' : '' }}"> 
+            <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media {{ Request::is('accounts/*') ? 'active' : '' }}" data-sidebar="true" href="javascript:void(0);">  
+                <i class="media-left media-middle">
+                    <div class="material-icons md-light md-24">people</div>
+                </i> 
+                <span class="media-body">Accounts</span>
+                <div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+            </a> 
+            <ul class="dropdown-menu">
+                <li><a href="{{ route('accounts.users') }}" class="{{ Request::is('accounts/users') ? 'active' : '' }} {{ Request::is('accounts/users/*') ? 'active' : '' }}">Users</a></li>
+                <li><a href="">Groups</a></li>
+            </ul>
+        </li>
+
+
 
         <!-- <li class="dropdown pmd-dropdown"> 
             <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">  

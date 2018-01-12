@@ -142,10 +142,16 @@ class PerformanceController extends Controller
      */
     public function show($id)
     {
+
         $record  = IPC::find($id);
         $outputs = OutputIndicators::where('mfo_id', $id)->get();
 
-        return view('myperformance.record', compact( 'record', 'outputs'));
+        if ( count($record) > 0 ) {
+            return view('myperformance.record', compact( 'record', 'outputs'));    
+        }
+
+        return redirect()->route('performance.individual');
+        
     }
 
     /**

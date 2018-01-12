@@ -229,71 +229,79 @@
                                 <h3>Sign Up <span>with <strong>PROPELLER</strong></span></h3>
                             </div>
 
-                            <form class="form-login" method="POST" action="{{ route('register') }}">
+                            @if(session('info'))
+                                <div class="pmd-card-title">
+                                    <div class="alert alert-success" role="alert">
+                                        <p class="text-center">{{ session('info') }}</p>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <form id="form-signup" method="POST" action="{{ route('register') }}">
                                 {{ csrf_field() }}
                                 <div class="pmd-card-body">
 
                                     <div class="group-fields clearfix row">
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                             <div class="form-group pmd-textfield">
-                                                <label for="firstname" class="control-label">Name</label>
-                                                <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First*" value="{{ @old('firstname') }}"><span class="pmd-textfield-focused"></span>
-                                                <!-- <p class="help-block">You can't leave this empty.</p> -->
+                                                <label class="control-label">Name</label>
+                                                <input id="firstname" type="text" name="firstname" class="form-control" placeholder="First*" value="{{ @old('firstname') }}" required>
+                                                <!-- <p class="help-block has-error">You can't leave this empty.</p> -->
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                             <div class="form-group pmd-textfield">
-                                                <label for="regular1" class="control-label">&nbsp;</label>
-                                                <input type="text" id="middlename" name="middlename" class="form-control" placeholder="Middle" value="{{ @old('middlename') }}"><span class="pmd-textfield-focused"></span>
+                                                <label class="control-label">&nbsp;</label>
+                                                <input id="middlename" type="text" name="middlename" class="form-control" placeholder="Middle" value="{{ @old('middlename') }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                             <div class="form-group pmd-textfield">
-                                                <label for="regular1" class="control-label">&nbsp;</label>
-                                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last*" value="{{ @old('lastname') }}"><span class="pmd-textfield-focused"></span>
+                                                <label class="control-label">&nbsp;</label>
+                                                <input id="lastname" type="text" name="lastname" class="form-control" placeholder="Last*" value="{{ @old('lastname') }}">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                                        <label for="inputError1" class="control-label pmd-input-group-label">Username</label>
+                                        <label class="control-label pmd-input-group-label">Username</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">person</i></div>
-                                            <input type="text" class="form-control">
+                                            <input id="signup_username" type="text" name="username" class="form-control" value="{{ @old('username') }}">
                                         </div>
                                     </div>
 
                                     
                                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                                        <label for="inputError1" class="control-label pmd-input-group-label">Email address</label>
+                                        <label class="control-label pmd-input-group-label">Email address</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">email</i></div>
-                                            <input type="text" class="form-control">
+                                            <input id="signup_email" name="email" type="email" class="form-control">
                                         </div>
                                     </div>
                                     
                                     <div class="group-fields clearfix row">
                                         <div class="col-md-6">
                                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                                                <label for="inputError1" class="control-label pmd-input-group-label">Password</label>
+                                                <label class="control-label pmd-input-group-label">Password</label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
-                                                    <input type="text" class="form-control">
+                                                    <input id="signup_password" name="password" type="password" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                                                <label for="inputError1" class="control-label">Confirm password</label>
-                                                <input type="text" class="form-control">
+                                                <label class="control-label">Confirm password</label>
+                                                <input id="confirm_password" name="confirm_password" type="password" class="form-control">
                                             </div>
                                         </div>
                                     </div>
-                              </div>
+                                </div>
                               
-                              <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
-                                <button class="btn pmd-ripple-effect btn-primary btn-block" type="submit">Sign up</button>
-                              </div>
+                                <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
+                                    <button class="btn pmd-ripple-effect btn-primary btn-block" type="submit">Sign up</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -308,40 +316,13 @@
 @section('scripts')
 
 <script src="{{ asset('js/jquery-signup-validate.js') }}" type="text/javascript"></script>
-
 <script type="text/javascript">
-    $(document).ready(function(){
-        /*$('.app-list-icon li a').addClass("active");
-        $(".login-for").click(function(){
-            $('.login-card').hide()
-            $('.forgot-password-card').show();
-        });
-        $(".signin").click(function(){
-            $('.login-card').show()
-            $('.forgot-password-card').hide();
-        });*/
-    });
-</script>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        /*$(".login-register").click(function(){
-            $('.login-card').hide()
-            $('.forgot-password-card').hide();
-            $('.register-card').show();
-        });
-        
-        $(".register-login").click(function(){
-            $('.register-card').hide()
-            $('.forgot-password-card').hide();
-            $('.login-card').show();
-        });
-        
-        $(".forgot-password").click(function(){
-            $('.login-card').hide()
-            $('.register-card').hide()
-            $('.forgot-password-card').show();
-        });*/ 
-    });
+    /*$('#form-signup').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+        var data = $(this).serializeArray();
+        console.log(data); //use the console for debugging, F12 in Chrome, not alerts
+    });*/
+
 </script>
 @endsection
