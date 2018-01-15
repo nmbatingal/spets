@@ -60,19 +60,17 @@
                             <ul class="list-group pmd-z-depth pmd-list pmd-card-list">
                                 <li class="list-group-item">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);" class="avatar-list-img">
-                                            <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{ asset('themes/images/user-icon.png') }}" data-holder-rendered="true">
-                                        </a>
+                                            <i class="material-icons media-left pmd-md">people</i>
                                     </div>
                                     <div class="media-body">
-                                        <a href="{{ route('performance.showRecord', ['id' => $group['id']]) }}"> 
-                                            <h3 class="list-group-item-heading"><b>{{ $group['firstname'] }}</b></h3>
-                                            <span class="list-group-item-text">Position - Office</span>
+                                        <a href="javascript:void(0);"> 
+                                            <h3 class="list-group-item-heading"><b>{{ $group['div_name'] }}</b></h3>
+                                            <span class="list-group-item-text">{{ $group['acronym'] }}</span>
                                         </a>
                                     </div>
                                     <div class="media-right"> 
                                         <div class="pull-right">
-                                            <span class="badge badge-warning">admin</span>
+                                            <span class="badge badge-info">3</span>
                                         </div>
                                     </div>
                                 </li>
@@ -90,10 +88,56 @@
                     @endif
                 </div>
             </div>
+            <div class="col-md-5">
+                <div class="pmd-card pmd-z-depth">
+                    <div class="pmd-card-body">
+
+                        <h3 class="heading">Group Information</h3>
+                        <div class="row">
+                            <form id="form-group" class="form-horizontal" action="{{ route('accounts.group.store') }}"  method="POST">
+                                {{ csrf_field() }}
+                                <fieldset>
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-sm-3 control-label" for="">Division / Office</label>
+                                        <div class="col-sm-9 group-input">
+                                            <input type="text" class="form-control" id="" name="div_name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-sm-3 control-label" for="">Acronym</label>
+                                        <div class="col-sm-9 group-input">
+                                            <input type="text" class="form-control" id="" name="acronym">
+                                        </div>
+                                    </div>
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-sm-3 control-label" for="">Office Head</label>
+                                        <div class="col-sm-9 group-input">
+                                            <input type="text" class="form-control" id="" name="div_head">
+                                        </div>
+                                    </div>
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-sm-3 control-label" for="">Position</label>
+                                        <div class="col-sm-9 group-input">
+                                            <input type="text" class="form-control" id="" name="position">
+                                        </div>
+                                    </div>
+                                    <div class="form-group btns margin-bot-30">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <button type="submit" class="btn btn-success pmd-ripple-effect">Save</button>
+                                            <button class="btn btn-default btn-link pmd-ripple-effect">Reset</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div><!-- tab end -->
 </div>
 @endsection
 
 @section('scripts')
+<script src="{{ asset('js/pages/jquery-group.js') }}" type="text/javascript"></script>
 @endsection

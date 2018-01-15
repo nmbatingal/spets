@@ -33,5 +33,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     // ACCOUNTS
     Route::get('/accounts/users', 'UsersController@index')->name('accounts.users');			// user
+    Route::post('/accounts/users/store', 'UsersController@store')->name('accounts.user.store'); // store new group
     Route::get('/accounts/groups', 'GroupsController@index')->name('accounts.groups');		// group
+    Route::post('/accounts/groups/store', 'GroupsController@store')->name('accounts.group.store'); // store new group
 });

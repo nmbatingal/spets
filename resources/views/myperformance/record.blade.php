@@ -21,6 +21,18 @@
     .text-center {
         text-align: center !important;
     }
+
+    .cell-success {
+        background: #75ff73;
+    }
+
+    .cell-info {
+        background: #73d4ff;
+    }
+
+    .cell-danger {
+        background: #ffb6b6;
+    }
 </style>
 @endsection
 
@@ -57,29 +69,35 @@
                     <a class="btn pmd-btn-raised pull-right pmd-ripple-effect btn-primary" href="{{ route('performance.create') }}">Update Record</a>
                 </div>
                 <div class="table-responsive">
-                    <div class="table-responsive table-striped table-bordered">
-                        <table class="table">
+                    <div class="table-responsive table-striped table-bordered table-hover">
+                        <table id="table-record" class="table">
                             <colgroup>
-                                <col width="30%">
-                                <col width="30%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
-                                <col width="2%">
+                                <col width="25%">
+                                <col width="25%">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
+                                <col width="">
                                 <col width="4%">
                             </colgroup>
                             <thead>
@@ -87,6 +105,8 @@
                                     <th rowspan="3" class="text-center">MFO</th>
                                     <th rowspan="3">Success Indicator</th>
                                     <th colspan="18"><small>Monthly Target</small></th>
+                                    <th colspan="3"><small>Total Accumulated Target</small></th>
+                                    <th colspan="3"><small>Overall Target</small></th>
                                     <th rowspan="3"></th>
                                 </tr>
                                 <tr>
@@ -96,6 +116,12 @@
                                     <th colspan="3">Apr</th>
                                     <th colspan="3">May</th>
                                     <th colspan="3">Jun</th>
+                                    <th rowspan="2">T</th>
+                                    <th rowspan="2">A</th>
+                                    <th rowspan="2">%</th>
+                                    <th rowspan="2">T</th>
+                                    <th rowspan="2">A</th>
+                                    <th rowspan="2">%</th>
                                 </tr>
                                 <tr>
                                     <th>T</th>
@@ -123,24 +149,143 @@
                                     <tr>
                                         <td>{{ $output['major_output'] }}</td>
                                         <td>{{ $output['indicator_measure'] }}</td>
-                                        <td data-for="target">{{ $output['jan_total'] }}</td>
-                                        <td data-for="accomp"></td>
-                                        <td data-for="perc"></td>
-                                        <td data-for="target">{{ $output['feb_total'] }}</td>
-                                        <td data-for="accomp"></td>
-                                        <td data-for="perc"></td>
-                                        <td data-for="target">{{ $output['mar_total'] }}</td>
-                                        <td data-for="accomp"></td>
-                                        <td data-for="perc"></td>
-                                        <td data-for="target">{{ $output['apr_total'] }}</td>
-                                        <td data-for="accomp"></td>
-                                        <td data-for="perc"></td>
-                                        <td data-for="target">{{ $output['may_total'] }}</td>
-                                        <td data-for="accomp"></td>
-                                        <td data-for="perc"></td>
-                                        <td data-for="target">{{ $output['jun_total'] }}</td>
-                                        <td data-for="accomp"></td>
-                                        <td data-for="perc"></td>
+
+                                        <!-- January -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['jan_total'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $jan_a = $output['jan_accomplished'] ? $output['jan_accomplished'] : 0;
+                                                echo $jan_a ? $jan_a : '';
+                                            ?>
+                                        </td>
+
+                                        <?php
+                                            $jan_total = $output->totalPercent($jan_a, $output['jan_total']);
+                                            echo '<td class="text-right '.$jan_total['class'].'">'.$jan_total['all_total'].'</td>';
+
+                                        ?>
+
+                                        <!-- February -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['feb_total'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $feb_a = $output['feb_accomplished'] ? $output['feb_accomplished'] : 0;
+                                                echo $feb_a ? $feb_a : '';
+                                            ?>
+                                        </td>
+                                        <td class="text-right" data-for="perc">
+                                            <?php
+                                                $feb_total = (($feb_a / $output['feb_total']) * 100);
+                                                echo $feb_total;
+                                            ?>
+                                        </td>
+
+                                        <!-- March -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['mar_total'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $mar_a = $output['mar_accomplished'] ? $output['mar_accomplished'] : 0;
+                                                echo $mar_a ? $mar_a : '';
+                                            ?>
+                                        </td>
+                                        <td class="text-right" data-for="perc">
+                                            <?php
+                                                $mar_total = (($mar_a / $output['mar_total']) * 100);
+                                                echo $mar_total;
+                                            ?>
+                                        </td>
+
+                                        <!-- April -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['apr_total'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $apr_a = $output['apr_accomplished'] ? $output['apr_accomplished'] : 0;
+                                                echo $apr_a ? $apr_a : '';
+                                            ?>
+                                        </td>
+                                        <td class="text-right" data-for="perc">
+                                            <?php
+                                                $apr_total = (($apr_a / $output['apr_total']) * 100);
+                                                echo $apr_total;
+                                            ?>
+                                        </td>
+
+                                        <!-- May -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['may_total'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $may_a = $output['may_accomplished'] ? $output['may_accomplished'] : 0;
+                                                echo $may_a ? $may_a : '';
+                                            ?>
+                                        </td>
+                                        <td class="text-right" data-for="perc">
+                                            <?php
+                                                $may_total = (($may_a / $output['may_total']) * 100);
+                                                echo $may_total;
+                                            ?>
+                                        </td>
+
+                                        <!-- June -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['jun_total'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $jun_a = $output['jun_accomplished'] ? $output['jun_accomplished'] : 0;
+                                                echo $jun_a ? $jun_a : '';
+                                            ?>
+                                        </td>
+                                        <td class="text-right" data-for="perc">
+                                            <?php
+                                                $jun_total = (($jun_a / $output['jun_total']) * 100);
+                                                echo $jun_total;
+                                            ?>
+                                        </td>
+
+                                        <!-- June -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['jun_total'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $jun_a = $output['jun_accomplished'] ? $output['jun_accomplished'] : 0;
+                                                echo $jun_a ? $jun_a : '';
+                                            ?>
+                                        </td>
+                                        <td class="text-right" data-for="perc">
+                                            <?php
+                                                $jun_total = (($jun_a / $output['jun_total']) * 100);
+                                                echo $jun_total;
+                                            ?>
+                                        </td>
+
+                                        <!-- June -->
+                                        <td class="text-right" data-for="target">
+                                            {{ $output['targets'] }}
+                                        </td>
+                                        <td class="text-right" data-for="accomp">
+                                            <?php
+                                                $overall_accomp = $output->overallTotalAccomplished($output['id']);
+                                                echo $overall_accomp;
+                                            ?>
+                                        </td>
+                                        <td class="text-right" data-for="perc">
+                                            <?php
+                                                $overall_total = $output->overallTotalPercent($output['id'], $output['targets']);
+                                                echo $overall_total;
+                                            ?>
+                                        </td>
+
                                         <td>
                                             <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button"><i class="material-icons pmd-sm">mode_edit</i></button>
                                         </td>
@@ -158,15 +303,37 @@
 @endsection
 
 @section('scripts')
-<!-- Datatable js -->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script>
 
-<!-- Datatable Bootstrap -->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    $("td[data-for='accomp']").each(function() {
 
-<!-- Datatable responsive js-->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+       var cell_null = $.trim($(this).text()).length;
+       var cell_num  = parseFloat($(this).text());
 
-<!-- Datatable select js-->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
+       if ( cell_null == '' || cell_num < 1) {
+           $(this).addClass('cell-danger');
+           $(this).removeClass('cell-success');
+       } else {
+           $(this).addClass('cell-success');
+           $(this).removeClass('cell-danger');
+       }
+
+    });
+
+    $("td[data-for='perc']").each(function() {
+
+       var cell_null = $.trim($(this).text()).length;
+       var cell_num  = parseFloat($(this).text());
+
+       if ( cell_num < 100) {
+           $(this).addClass('cell-danger');
+           $(this).removeClass('cell-success');
+       } else {
+           $(this).addClass('cell-success');
+           $(this).removeClass('cell-danger');
+       }
+
+    });
+
+</script>
 @endsection

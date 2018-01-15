@@ -36,7 +36,15 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $office = new Office();
+
+        $office->div_name  = $request['div_name'];
+        $office->acronym   = $request['acronym'];
+        $office->div_head  = $request['div_head'];
+        $office->position  = $request['position'];
+        $office->save();
+
+        print_r($office);
     }
 
     /**

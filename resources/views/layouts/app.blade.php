@@ -51,9 +51,9 @@
         <!--content area start
         include('layouts.footer')
          content area end -->
-
-        
+         
     </div>
+
 
     <!-- Scripts Starts -->
     <!-- build:[src] assets/js/ -->
@@ -62,6 +62,7 @@
     <script src="{{ asset('assets/js/propeller.min.js') }}"></script>
 
     <script src="{{ asset('bower/jquery.nicescroll/jquery.nicescroll.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bower/jquery-validation/dist/jquery.validate.min.js') }}" type="text/javascript"></script>
 
     <!-- /build -->
     <script>
