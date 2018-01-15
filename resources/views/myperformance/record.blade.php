@@ -154,139 +154,90 @@
                                         <?php
                                            if ( $output['jan_total'] != 0 )
                                            {
-                                                $january = $output->totalMonthly($output['id'], $output['jan_total'], $output['jan_accomplished']);
-                                                echo '<td class="text-right">'. $output['jan_total'] .'</td>';
-                                                echo '<td class="text-right '. $january['class-accomplish'] .'">'. $january['accomplished'] .'</td>';
-                                                echo '<td class="text-right '. $january['class-percent'] .'">'. $january['total-percent'] .'</td>';
+                                                $jan = $output->totalMonthly($output['id'], $output['jan_total'], $output['jan_accomplished']);
+                                                echo '<td class="text-right">'. $jan['target'] .'</span></td>';
+                                                echo '<td class="text-right '. $jan['class-accomplish'] .'">'. $jan['accomplished'] .'</td>';
+                                                echo '<td class="text-right '. $jan['class-percent'] .'">'. $jan['total-percent'] .'</td>';
                                            } else {
-                                                //echo '<td></td><td></td><td></td>';
+                                                echo '<td></td><td></td><td></td>';
+                                           }
+                                        ?>
+                                        <!-- February -->
+                                        <?php
+                                           if ( $output['feb_total'] != 0 )
+                                           {
+                                                $feb = $output->totalMonthly($output['id'], $output['feb_total'], $output['feb_accomplished']);
+                                                echo '<td class="text-right">'. $feb['target'] .'</span></td>';
+                                                echo '<td class="text-right '. $feb['class-accomplish'] .'">'. $feb['accomplished'] .'</td>';
+                                                echo '<td class="text-right '. $feb['class-percent'] .'">'. $feb['total-percent'] .'</td>';
+                                           } else {
+                                                echo '<td></td><td></td><td></td>';
+                                           }
+                                        ?>
+                                        <!-- March -->
+                                        <?php
+                                           if ( $output['mar_total'] != 0 )
+                                           {
+                                                $mar = $output->totalMonthly($output['id'], $output['mar_total'], $output['mar_accomplished']);
+                                                echo '<td class="text-right">'. $mar['target'] .'</span></td>';
+                                                echo '<td class="text-right '. $mar['class-accomplish'] .'">'. $mar['accomplished'] .'</td>';
+                                                echo '<td class="text-right '. $mar['class-percent'] .'">'. $mar['total-percent'] .'</td>';
+                                           } else {
+                                                echo '<td></td><td></td><td></td>';
+                                           }
+                                        ?>
+                                        <!-- April -->
+                                        <?php
+                                           if ( $output['apr_total'] != 0 )
+                                           {
+                                                $apr = $output->totalMonthly($output['id'], $output['apr_total'], $output['apr_accomplished']);
+                                                echo '<td class="text-right">'. $apr['target'] .'</span></td>';
+                                                echo '<td class="text-right '. $apr['class-accomplish'] .'">'. $apr['accomplished'] .'</td>';
+                                                echo '<td class="text-right '. $apr['class-percent'] .'">'. $apr['total-percent'] .'</td>';
+                                           } else {
+                                                echo '<td></td><td></td><td></td>';
+                                           }
+                                        ?>
+                                        <!-- May -->
+                                        <?php
+                                           if ( $output['may_total'] != 0 )
+                                           {
+                                                $may = $output->totalMonthly($output['id'], $output['may_total'], $output['may_accomplished']);
+                                                echo '<td class="text-right">'. $may['target'] .'</span></td>';
+                                                echo '<td class="text-right '. $may['class-accomplish'] .'">'. $may['accomplished'] .'</td>';
+                                                echo '<td class="text-right '. $may['class-percent'] .'">'. $may['total-percent'] .'</td>';
+                                           } else {
+                                                echo '<td></td><td></td><td></td>';
+                                           }
+                                        ?>
+                                        <!-- June -->
+                                        <?php
+                                           if ( $output['jun_total'] != 0 )
+                                           {
+                                                $jun = $output->totalMonthly($output['id'], $output['jun_total'], $output['jun_accomplished']);
+                                                echo '<td class="text-right">'. $jun['target'] .'</span></td>';
+                                                echo '<td class="text-right '. $jun['class-accomplish'] .'">'. $jun['accomplished'] .'</td>';
+                                                echo '<td class="text-right '. $jun['class-percent'] .'">'. $jun['total-percent'] .'</td>';
+                                           } else {
+                                                echo '<td></td><td></td><td></td>';
                                            }
                                         ?>
 
+                                        <!-- Accumulated Total -->
                                         <?php
-                                            //$jan_total = $output->totalPercent($jan_a, $output['jan_total']);
-                                            //echo '<td class="text-right '.$jan_total['class'].'">'.$jan_total['all_total'].'</td>';
-
+                                            $overall = $output->overallTotalAccomplished($output['id']);
+                                            echo '<td class="text-right">'.$overall['targets'].'</td>';
+                                            echo '<td class="text-right">'.$overall['accomplished'].'</td>';
+                                            echo '<td class="text-right">'.$overall['percentage'].'</td>';
                                         ?>
 
-                                        <!-- February -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['feb_total'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $feb_a = $output['feb_accomplished'] ? $output['feb_accomplished'] : 0;
-                                                echo $feb_a ? $feb_a : '';
-                                            ?>
-                                        </td>
-                                        <td class="text-right" data-for="perc">
-                                            <?php
-                                                $feb_total = (($feb_a / $output['feb_total']) * 100);
-                                                echo $feb_total;
-                                            ?>
-                                        </td>
-
-                                        <!-- March -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['mar_total'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $mar_a = $output['mar_accomplished'] ? $output['mar_accomplished'] : 0;
-                                                echo $mar_a ? $mar_a : '';
-                                            ?>
-                                        </td>
-                                        <td class="text-right" data-for="perc">
-                                            <?php
-                                                $mar_total = (($mar_a / $output['mar_total']) * 100);
-                                                echo $mar_total;
-                                            ?>
-                                        </td>
-
-                                        <!-- April -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['apr_total'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $apr_a = $output['apr_accomplished'] ? $output['apr_accomplished'] : 0;
-                                                echo $apr_a ? $apr_a : '';
-                                            ?>
-                                        </td>
-                                        <td class="text-right" data-for="perc">
-                                            <?php
-                                                $apr_total = (($apr_a / $output['apr_total']) * 100);
-                                                echo $apr_total;
-                                            ?>
-                                        </td>
-
-                                        <!-- May -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['may_total'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $may_a = $output['may_accomplished'] ? $output['may_accomplished'] : 0;
-                                                echo $may_a ? $may_a : '';
-                                            ?>
-                                        </td>
-                                        <td class="text-right" data-for="perc">
-                                            <?php
-                                                $may_total = (($may_a / $output['may_total']) * 100);
-                                                echo $may_total;
-                                            ?>
-                                        </td>
-
-                                        <!-- June -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['jun_total'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $jun_a = $output['jun_accomplished'] ? $output['jun_accomplished'] : 0;
-                                                echo $jun_a ? $jun_a : '';
-                                            ?>
-                                        </td>
-                                        <td class="text-right" data-for="perc">
-                                            <?php
-                                                $jun_total = (($jun_a / $output['jun_total']) * 100);
-                                                echo $jun_total;
-                                            ?>
-                                        </td>
-
-                                        <!-- June -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['jun_total'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $jun_a = $output['jun_accomplished'] ? $output['jun_accomplished'] : 0;
-                                                echo $jun_a ? $jun_a : '';
-                                            ?>
-                                        </td>
-                                        <td class="text-right" data-for="perc">
-                                            <?php
-                                                $jun_total = (($jun_a / $output['jun_total']) * 100);
-                                                echo $jun_total;
-                                            ?>
-                                        </td>
-
-                                        <!-- June -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['targets'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $overall_accomp = $output->overallTotalAccomplished($output['id']);
-                                                echo $overall_accomp;
-                                            ?>
-                                        </td>
-                                        <td class="text-right" data-for="perc">
-                                            <?php
-                                                $overall_total = $output->overallTotalPercent($output['id'], $output['targets']);
-                                                echo $overall_total;
-                                            ?>
-                                        </td>
+                                        <!-- Overall Total -->
+                                        <?php
+                                            $overall = $output->overallTotalAccomplished($output['id']);
+                                            echo '<td class="text-right">'.$overall['targets'].'</td>';
+                                            echo '<td class="text-right '. $overall['class-accomplish'] .'">'.$overall['accomplished'].'</td>';
+                                            echo '<td class="text-right '. $overall['class-percent'] .'">'.$overall['percentage'].'</td>';
+                                        ?>
 
                                         <td>
                                             <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button"><i class="material-icons pmd-sm">mode_edit</i></button>
@@ -336,6 +287,16 @@
        }
 
     });*/
+
+    $("td").each(function() {
+
+       var cell_null = $.trim($(this).text()).length;
+       var cell_num  = parseFloat($(this).text());
+
+        if ( cell_num == 0 ) {
+           $(this).text('');
+        }
+    });
 
 </script>
 @endsection
