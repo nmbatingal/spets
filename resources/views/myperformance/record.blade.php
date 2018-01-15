@@ -151,19 +151,21 @@
                                         <td>{{ $output['indicator_measure'] }}</td>
 
                                         <!-- January -->
-                                        <td class="text-right" data-for="target">
-                                            {{ $output['jan_total'] }}
-                                        </td>
-                                        <td class="text-right" data-for="accomp">
-                                            <?php
-                                                $jan_a = $output['jan_accomplished'] ? $output['jan_accomplished'] : 0;
-                                                echo $jan_a ? $jan_a : '';
-                                            ?>
-                                        </td>
+                                        <?php
+                                           if ( $output['jan_total'] != 0 )
+                                           {
+                                                $january = $output->totalMonthly($output['id'], $output['jan_total'], $output['jan_accomplished']);
+                                                echo '<td class="text-right">'. $output['jan_total'] .'</td>';
+                                                echo '<td class="text-right '. $january['class-accomplish'] .'">'. $january['accomplished'] .'</td>';
+                                                echo '<td class="text-right '. $january['class-percent'] .'">'. $january['total-percent'] .'</td>';
+                                           } else {
+                                                //echo '<td></td><td></td><td></td>';
+                                           }
+                                        ?>
 
                                         <?php
-                                            $jan_total = $output->totalPercent($jan_a, $output['jan_total']);
-                                            echo '<td class="text-right '.$jan_total['class'].'">'.$jan_total['all_total'].'</td>';
+                                            //$jan_total = $output->totalPercent($jan_a, $output['jan_total']);
+                                            //echo '<td class="text-right '.$jan_total['class'].'">'.$jan_total['all_total'].'</td>';
 
                                         ?>
 
@@ -305,7 +307,7 @@
 @section('scripts')
 <script>
 
-    $("td[data-for='accomp']").each(function() {
+    /*$("td[data-for='accomp']").each(function() {
 
        var cell_null = $.trim($(this).text()).length;
        var cell_num  = parseFloat($(this).text());
@@ -333,7 +335,7 @@
            $(this).removeClass('cell-danger');
        }
 
-    });
+    });*/
 
 </script>
 @endsection

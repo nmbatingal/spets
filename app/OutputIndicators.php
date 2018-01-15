@@ -24,25 +24,58 @@ class OutputIndicators extends Model
         return $this->belongsTo('App\PerformanceTable', 'mfo_id', 'id');
     }
 
+    //
+    public function totalMonthly($id, $target, $accomplished)
+    {
+        $percentage = (($accomplished / $target) * 100);
 
+        if ( $accomplished < $target ) {
+            $class_accomplish = 'cell-danger';
+        } elseif ( $accomplished > $target ) {
+            $class_accomplish = 'cell-info';
+        } else {
+            $class_accomplish = 'cell-success';
+        }
+
+        if ( $percentage < 100 ) {
+            $class_percent = 'cell-danger';
+        } elseif ( $percentage > 100 ) {
+            $class_percent = 'cell-info';
+        } else {
+            $class_percent = 'cell-success';
+        }
+
+        $data = [
+            'class-accomplish' => $class_accomplish,
+            'class-percent'    => $class_percent,
+            'target'           => $target,
+            'accomplished'     => $accomplished,// ? $accomplished : '',
+            'total-percent'    => $percentage// ? $percentage : '',
+        ];
+
+        return $data;
+    }
+
+    // TOTAL MONTHLY PERCENTAGE FUNCTION
     public function totalPercent($accomplished, $total) {
         $all_total = (($accomplished / $total) * 100);
+        $mo_total  = $all_total ? $all_total : '';
 
         $data = array();
         if ( $all_total < 100 ) {
             $data = [
                 'class'         => 'cell-danger',
-                'all_total'     => $all_total
+                'all_total'     => $mo_total
             ];
         } elseif ( $all_total > 100 ) {
             $data = [
                 'class'         => 'cell-info',
-                'all_total'     => $all_total
+                'all_total'     => $mo_total
             ];
         } else {
             $data = [
                 'class'         => 'cell-success',
-                'all_total'     => $all_total
+                'all_total'     => $mo_total
             ];
         }
 
