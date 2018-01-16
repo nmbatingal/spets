@@ -143,7 +143,7 @@ class PerformanceController extends Controller
     public function show($id)
     {
 
-        $record  = IPC::find($id);
+        $record  = IPC::findOrFail($id);
         $outputs = OutputIndicators::where('mfo_id', $id)->get();
 
         if ( count($record) > 0 ) {

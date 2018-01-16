@@ -32,7 +32,7 @@ class CreateOutputIndicatorsTable extends Migration
             $table->decimal('may_accomplished', 8,2)->default(0);
             $table->decimal('jun_total', 8,2);
             $table->decimal('jun_accomplished', 8,2)->default(0);
-            $table->decimal('mfo_id', 8,2)->unsigned();
+            $table->integer('mfo_id')->unsigned();
             $table->foreign('mfo_id')->references('id')->on('performance_tables')->onDelete('cascade');
             $table->timestamps();
         });

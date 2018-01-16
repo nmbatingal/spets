@@ -44,7 +44,7 @@ class GroupsController extends Controller
         $office->position  = $request['position'];
         $office->save();
 
-        print_r($office);
+        return redirect()->route('accounts.groups');
     }
 
     /**
