@@ -14,6 +14,7 @@ $(function () {
             },
             contact_number : {
                 required   : true,
+                minlength  : 11
             },
             password    : {
                 required   : true,

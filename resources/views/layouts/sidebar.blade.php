@@ -8,7 +8,9 @@
         <li class="dropdown pmd-dropdown pmd-user-info visible-xs visible-md visible-sm visible-lg">
             <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" aria-expandedhref="javascript:void(0);">
                 <div class="media-left">
-                    <img src="{{ asset('themes/images/user-icon.png') }}" alt="New User">
+                    <span class="avatar-list-img40x40">
+                        <img src="{{ asset('themes/images/user-icon.png') }}" alt="New User">
+                    </span>
                 </div>
                 <div class="media-body media-middle">{{ Auth::user()->firstname }}</div>
                 <div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
@@ -68,7 +70,7 @@
                 <div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
             </a> 
             <ul class="dropdown-menu">
-                <li><a href="{{ route('accounts.users') }}" class="{{ Request::is('accounts/users') ? 'active' : '' }} {{ Request::is('accounts/users/*') ? 'active' : '' }}">Users</a></li>
+                <li><a href="{{ route('users.index') }}" class="{{ Request::is('accounts/users') ? 'active' : '' }} {{ Request::is('accounts/users/*') ? 'active' : '' }}">Users</a></li>
                 <li><a href="{{ route('accounts.groups') }}" class="{{ Request::is('accounts/groups') ? 'active' : '' }} {{ Request::is('accounts/groups/*') ? 'active' : '' }}">Groups</a></li>
             </ul>
         </li>

@@ -29,6 +29,12 @@
                             </div>
                         @endif
 
+                        @if (session('unauthorize'))
+                            <div class="alert alert-danger">
+                                {{ session('unauthorize') }}
+                            </div>
+                        @endif
+
                         You are logged in!
                     </div>
                 </div>

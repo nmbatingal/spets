@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+//Route::get('/login', 'HomeController@login');
 
 Auth::routes();
 
@@ -31,10 +29,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/performance/individual/create', 'PerformanceController@create')->name('performance.create');
     Route::post('/performance/individual/store', 'PerformanceController@store')->name('performance.store');
 
-    // ACCOUNTS
-    Route::get('/accounts/users', 'UsersController@index')->name('accounts.users');			// user
-    Route::get('/accounts/users/{id}', 'UsersController@show')->name('accounts.get.user'); // store new group
-    Route::post('/accounts/users/store', 'UsersController@store')->name('accounts.user.store'); // store new group
-    Route::get('/accounts/groups', 'GroupsController@index')->name('accounts.groups');		// group
-    Route::post('/accounts/groups/store', 'GroupsController@store')->name('accounts.group.store'); // store new group
+    Route::group(['middleware' => 'admin'], function() {
+        // ACCOUNTS
+        Route::get('/accounts/users', 'UsersController@index')->name('users.index');            // user
+        Route::get('/accounts/users/{id}', 'UsersController@show')->name('users.show'); // show user
+        Route::get('/accounts/users/update/{id}', 'UsersController@update')->name('users.update'); // update user
+        Route::post('/accounts/users/status', 'UsersController@changeStatus')->name('users.switchStatus'); // switch user status
+        Route::post('/accounts/users/admin', 'UsersController@changeAdmin')->name('users.switchAdmin'); // switch user admin
+        Route::post('/accounts/users/reset', 'UsersController@resetPassword')->name('users.reset'); // reset user password
+        Route::get('/accounts/groups', 'GroupsController@index')->name('accounts.groups');      // group
+        Route::post('/accounts/groups/store', 'GroupsController@store')->name('accounts.group.store'); // store new group
+    });
+    
 });
