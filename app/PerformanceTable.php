@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PerformanceTable extends Model
 {
+    protected $connection = 'mysql';
+    
     /**
      * The table associated with the model.
      *

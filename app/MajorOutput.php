@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class MajorOutput extends Model
 {
+
+    protected $connection = 'mysql';
+    
     /**
      * The table associated with the model.
      *
